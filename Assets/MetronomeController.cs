@@ -43,10 +43,10 @@ public class MetronomeController : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             }
 
-            if (Random.value > 0.5)
-            {
-                NoteSpawner.noteSpawner.SpawnNote();
-            }
+            //if (Random.value > 0.5)
+            //{
+            //    NoteSpawner.noteSpawner.SpawnNote();
+            //}
         }
     }
 

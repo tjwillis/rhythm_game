@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public AudioSource music;
-    public bool music_enabled;
-
     public GameObject metronome_sprite;
+    public GameObject noteSpawner;
 
     public static GameController gameController;
 
@@ -17,35 +15,13 @@ public class GameController : MonoBehaviour
     void Start()
     {
         gameController = this;
-        NoteSpawner.noteSpawner.SpawnNote();
+        //noteSpawner.GetComponent<NoteSpawner>().SpawnNote();
     }
 
     // Update is called once per frame
     void Update()
     {
         t += Time.deltaTime;
-        checkMusic();
-        checkMetronome();
-    }
-
-    void checkMusic()
-    {
-        if (music_enabled)
-        {
-            if (!music.isPlaying)
-            {
-                music.Play();
-            }
-        }
-        else
-        {
-            music.Stop();
-        }
-    }
-
-    void checkMetronome()
-    {
-       
     }
 
     public void NoteHit()
@@ -56,10 +32,5 @@ public class GameController : MonoBehaviour
     public void NoteMiss()
     {
        // Debug.Log("miss");
-    }
-
-    public void GenerateNote()
-    {
-
     }
 }

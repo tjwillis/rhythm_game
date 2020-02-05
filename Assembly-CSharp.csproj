@@ -62,9 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ArrowController.cs" />
+    <Compile Include="Assets\ConductorController.cs" />
     <Compile Include="Assets\GameController.cs" />
     <Compile Include="Assets\MetronomeController.cs" />
+    <Compile Include="Assets\NoteController.cs" />
     <Compile Include="Assets\NoteSpawner.cs" />
     <Compile Include="Assets\button_controller.cs" />
     <Compile Include="Assets\metadata.cs" />
