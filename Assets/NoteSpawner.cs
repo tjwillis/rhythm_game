@@ -20,7 +20,7 @@ public class NoteSpawner : MonoBehaviour
         
     }
 
-    public GameObject CreateNote(string direction = "")
+    public GameObject CreateNote(bool isPlayer, string direction = "")
     {
         GameObject new_note = Instantiate(note_prefab, transform);
         Vector3 new_position = new Vector3(0f, 0f, 0f);
@@ -68,10 +68,10 @@ public class NoteSpawner : MonoBehaviour
         }
         new_note.transform.position += new_position;
         new_note.transform.rotation = new_rotation;
-        new_note.GetComponent<NoteController>().keyCode = new_keycode;
-        new_note.GetComponent<NoteController>().default_speed = 200f / 60f;
-        new_note.GetComponent<NoteController>().SpawnPos = new_position;
-        new_note.GetComponent<NoteController>().RemovePos = new_remove_position;
+        new_note.GetComponent<Note>().keyCode = new_keycode;
+        new_note.GetComponent<Note>().default_speed = 200f / 60f;
+        new_note.GetComponent<Note>().SpawnPos = new_position;
+        new_note.GetComponent<Note>().RemovePos = new_remove_position;
 
         new_note.SetActive(false);
 
@@ -80,7 +80,7 @@ public class NoteSpawner : MonoBehaviour
 
     public void SpawnNote()
     {
-        GameObject new_note = CreateNote();
+        GameObject new_note = CreateNote(false);
         new_note.SetActive(true);
     }
 

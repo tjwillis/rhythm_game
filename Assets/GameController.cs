@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         gameController = this;
-        //noteSpawner.GetComponent<NoteSpawner>().SpawnNote();
     }
 
     // Update is called once per frame
@@ -26,7 +26,32 @@ public class GameController : MonoBehaviour
 
     public void NoteHit()
     {
-        //Debug.Log("hit");
+        float audioLatencyInBeats = CalibrationController.audioLatency / ConductorController.conductorController.secPerBeat;
+        float accuracy = ConductorController.conductorController.songPosInBeats - ConductorController.conductorController.songPosInBeatsInt - audioLatencyInBeats;
+        string descriptor;
+
+        if (accuracy < -0.2)
+        {
+            descriptor = "Very early";
+        }
+        else if (accuracy < -0.1)
+        {
+            descriptor = "A little early";
+        }
+        else if (accuracy < 0.1)
+        {
+            descriptor = "Perfect!";
+        }
+        else if (accuracy < 0.2)
+        {
+            descriptor = "A little late";
+        }
+        else
+        {
+            descriptor = "Very late";
+        }
+
+        GameObject.Find("Canvas/ScoreText").GetComponent<Text>().text = accuracy.ToString("0.##") + " - " + descriptor;
     }
 
     public void NoteMiss()

@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 5244842541171793774}
   - component: {fileID: 5244842541171793772}
   - component: {fileID: 5244842541171793773}
+  - component: {fileID: 6185437675878227512}
   m_Layer: 0
-  m_Name: arrow
+  m_Name: Note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,14 +92,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5244842541171793761}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd21fbda32693a742a7eb7baec610723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   default_speed: 2
+  beatsShownInAdvance: 4
+  isPlayerTurn: 0
   canBePressed: 0
   keyCode: 276
+  SpawnPos: {x: 0, y: 0, z: 0}
+  RemovePos: {x: 0, y: 0, z: 0}
+  beat_number: 0
 --- !u!58 &5244842541171793772
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +142,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6185437675878227512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5244842541171793761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736d2ea4e1f6e564c802e39937c2b500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  default_speed: 0
+  canBePressed: 0
+  keyCode: 0
+  SpawnPos: {x: 0, y: 0, z: 0}
+  RemovePos: {x: 0, y: 0, z: 0}
+  beat_number: 0
